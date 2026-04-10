@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURA | Natural Energy</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Bodoni+Moda:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FAF0E8]">
+
+    <!-- Navegación Global -->
+    <nav class="fixed w-full z-50 bg-[#FAF0E8]/95 backdrop-blur-md border-b border-[#3B1F0E]/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <button onclick="navigateTo('home')" class="text-3xl font-bold tracking-[0.1em] text-kura-dark uppercase flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo KURA" class="h-10 w-auto">
+                <span>K<span class="text-kura-u">U</span>RA</span>
+            </button>
+
+            <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold text-stone-600">
+                <button onclick="navigateTo('home')" class="nav-link nav-item hover:text-kura-accent transition active" id="nav-home">Inicio</button>
+                <button onclick="navigateTo('products-main')" class="nav-link nav-item hover:text-kura-accent transition" id="nav-products-main">Catálogo</button>
+                <button onclick="navigateTo('nosotros')" class="nav-link nav-item hover:text-kura-accent transition" id="nav-nosotros">Nuestro Origen</button>
+            </div>
+
+            <a href="https://wa.me/593000000000?text=Hola%20KURA,%20quiero%20más%20información%20sobre%20sus%20productos"
+               target="_blank"
+               class="bg-kura-dark text-white text-[10px] font-bold uppercase tracking-widest px-6 py-3 btn-shine transition-all rounded-full">
+                WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- VISTA: HOME -->
+    <main id="home" class="page-view active">
+        <header class="relative h-[100vh] flex items-center justify-center overflow-hidden bg-kura-dark">
+            <div class="absolute inset-0 z-0 opacity-50 bg-center bg-cover" style="background-image: url('images/hero-home.jpg');"></div>
+            <div class="relative z-10 text-center px-6">
+                <h1 class="text-8xl md:text-[12rem] font-bold text-white mb-4 tracking-tighter uppercase">
+                    K<span class="text-kura-u">U</span>RA
+                </h1>
+                <p class="text-lg md:text-2xl font-light tracking-[0.3em] uppercase text-white opacity-80 mb-12">
+                    The place where natural energy begins
+                </p>
+                <button onclick="navigateTo('products-main')" class="bg-kura-accent text-white px-16 py-6 uppercase tracking-widest text-xs font-bold rounded-full shadow-2xl btn-shine">
+                    Ver Colecciones
+                </button>
+            </div>
+        </header>
+    </main>
+
+    <!-- VISTA: PRODUCTOS -->
+    <main id="products-main" class="page-view pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div id="category-selector">
+                <div class="text-center mb-20">
+                    <span class="text-kura-accent font-bold tracking-widest text-xs uppercase">Catálogo</span>
+                    <h2 class="text-6xl font-bold text-kura-dark mt-2">Nuestras Raíces</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Cloud Bites -->
+                    <div onclick="showCategory('cat-clouds')" class="product-category-card group">
+                        <div class="h-[450px] overflow-hidden relative">
+                            <img src="images/cloud-bites.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Colección Cloud Bites">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-10 left-10 right-10 text-white">
+                                <h3 class="text-5xl font-bold mb-4">Cloud Bites</h3>
+                                <p class="text-white/80 text-sm leading-relaxed max-w-xs mb-6 font-didot">
+                                    Chocolate Dark de especialidad y Fruit Clouds liofilizadas.
+                                </p>
+                                <span class="inline-flex items-center gap-2 bg-white text-kura-dark text-[10px] font-bold uppercase tracking-widest px-6 py-3 rounded-full">
+                                    Explorar Colección →
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Happy Nest -->
+                    <div onclick="showCategory('cat-happy-nest')" class="product-category-card group">
+                        <div class="h-[450px] overflow-hidden relative">
+                            <img src="images/happy-nest.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Happy Nest Eggs">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-10 left-10 right-10 text-white">
+                                <h3 class="text-5xl font-bold mb-4">Happy Nest</h3>
+                                <p class="text-white/80 text-sm leading-relaxed max-w-xs mb-6 font-didot">
+                                    Huevos de gallinas libres y felices, directos del campo.
+                                </p>
+                                <span class="inline-flex items-center gap-2 bg-white text-kura-dark text-[10px] font-bold uppercase tracking-widest px-6 py-3 rounded-full">
+                                    Ver Opciones →
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENEDORES DE SUB-PRODUCTOS -->
+            <div id="sub-products-container" class="mt-8 hidden">
+                <button onclick="backToCategories()" class="mb-12 text-kura-accent font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:opacity-70 transition-opacity">
+                    ← Volver a Categorías
+                </button>
+
+                <!-- CLOUD BITES -->
+                <div id="cat-clouds" class="category-view">
+                    <div class="mb-16">
+                        <h3 class="text-3xl font-bold text-kura-dark mb-2 font-didot">Cloud Bites: Chocolate Dark</h3>
+                        <p class="text-stone-500 text-sm mb-10">Intensidad y pureza en cada gramo de cacao.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="sub-card p-8 flex flex-col group cursor-pointer" onclick="selectItem(this)">
+                                <div class="flex justify-between items-start mb-6">
+                                    <span class="text-[10px] font-bold text-kura-accent border border-kura-accent px-3 py-1 rounded-full uppercase">Intenso</span>
+                                    <span class="text-2xl">🍫</span>
+                                </div>
+                                <h4 class="text-2xl font-bold text-kura-dark mb-2">70% Cacao Pure</h4>
+                                <p class="text-stone-500 text-sm mb-8 font-light font-didot leading-relaxed">
+                                    Nota profunda a madera y frutos rojos. Liofilización de origen.
+                                </p>
+                                <button class="btn-select mt-auto w-full py-4 rounded-xl border-2 border-kura-dark font-bold text-[10px] uppercase tracking-widest transition-colors">
+                                    Seleccionar +
+                                </button>
+                            </div>
+
+                            <div class="sub-card p-8 flex flex-col group cursor-pointer" onclick="selectItem(this)">
+                                <div class="flex justify-between items-start mb-6">
+                                    <span class="text-[10px] font-bold text-kura-gold border border-kura-gold px-3 py-1 rounded-full uppercase">Equilibrado</span>
+                                    <span class="text-2xl">🍫</span>
+                                </div>
+                                <h4 class="text-2xl font-bold text-kura-dark mb-2">60% Cacao Smooth</h4>
+                                <p class="text-stone-500 text-sm mb-8 font-light font-didot leading-relaxed">
+                                    Cremoso pero con carácter. El balance ideal del cacao andino.
+                                </p>
+                                <button class="btn-select mt-auto w-full py-4 rounded-xl border-2 border-kura-dark font-bold text-[10px] uppercase tracking-widest transition-colors">
+                                    Seleccionar +
+                                </button>
+                            </div>
+
+                            <div class="sub-card p-8 flex flex-col group cursor-pointer" onclick="selectItem(this)">
+                                <div class="flex justify-between items-start mb-6">
+                                    <span class="text-[10px] font-bold text-stone-400 border border-stone-200 px-3 py-1 rounded-full uppercase">Suave</span>
+                                    <span class="text-2xl">🍫</span>
+                                </div>
+                                <h4 class="text-2xl font-bold text-kura-dark mb-2">50% Cacao Classic</h4>
+                                <p class="text-stone-500 text-sm mb-8 font-light font-didot leading-relaxed">
+                                    Dulzura natural con el toque premium de KURA.
+                                </p>
+                                <button class="btn-select mt-auto w-full py-4 rounded-xl border-2 border-kura-dark font-bold text-[10px] uppercase tracking-widest transition-colors">
+                                    Seleccionar +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-3xl font-bold text-kura-dark mb-2 font-didot">Fruit Clouds - Taste the Andes</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <div class="sub-card p-6 text-center cursor-pointer" onclick="selectItem(this)">
+                                <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🫐</div>
+                                <h4 class="font-bold text-kura-dark mb-1">Arándanos</h4>
+                                <button class="btn-select w-full py-2 text-[9px] border border-kura-dark font-bold uppercase tracking-widest mt-4">Añadir +</button>
+                            </div>
+
+                            <div class="sub-card p-6 text-center cursor-pointer" onclick="selectItem(this)">
+                                <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🍓</div>
+                                <h4 class="font-bold text-kura-dark mb-1">Fresas</h4>
+                                <button class="btn-select w-full py-2 text-[9px] border border-kura-dark font-bold uppercase tracking-widest mt-4">Añadir +</button>
+                            </div>
+
+                            <div class="sub-card p-6 text-center cursor-pointer" onclick="selectItem(this)">
+                                <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🍌</div>
+                                <h4 class="font-bold text-kura-dark mb-1">Banano</h4>
+                                <button class="btn-select w-full py-2 text-[9px] border border-kura-dark font-bold uppercase tracking-widest mt-4">Añadir +</button>
+                            </div>
+
+                            <div class="sub-card p-6 text-center cursor-pointer" onclick="selectItem(this)">
+                                <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🍍</div>
+                                <h4 class="font-bold text-kura-dark mb-1">Piña</h4>
+                                <button class="btn-select w-full py-2 text-[9px] border border-kura-dark font-bold uppercase tracking-widest mt-4">Añadir +</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAPPY NEST -->
+                <div id="cat-happy-nest" class="category-view">
+                    <h2 class="text-4xl font-bold text-kura-dark mb-10 border-b border-stone-200 pb-6 font-didot">Happy Nest: Gallinas Libres</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl">
+                        <div class="sub-card p-12 flex flex-col justify-between cursor-pointer" onclick="selectItem(this)">
+                            <div>
+                                <span class="text-kura-gold font-bold text-[10px] uppercase tracking-[0.2em] mb-4 block">Hogar Compacto</span>
+                                <h4 class="text-4xl font-bold text-kura-dark mb-4">Media Docena</h4>
+                                <p class="text-stone-500 font-didot mb-10 leading-relaxed">
+                                    6 huevos de campo seleccionados individualmente por su frescor y tamaño óptimo.
+                                </p>
+                            </div>
+                            <button class="btn-select w-full py-5 bg-kura-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-xl">
+                                Pedir Media Docena
+                            </button>
+                        </div>
+
+                        <div class="sub-card p-12 flex flex-col justify-between border-2 border-kura-accent cursor-pointer" onclick="selectItem(this)">
+                            <div>
+                                <span class="bg-kura-accent text-white px-4 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest">Sugerido</span>
+                                <h4 class="text-4xl font-bold text-kura-dark mb-4">Docena Completa</h4>
+                                <p class="text-stone-500 font-didot mb-10 leading-relaxed">
+                                    12 unidades de pura nutrición andina. Máxima calidad garantizada para toda la familia.
+                                </p>
+                            </div>
+                            <button class="btn-select w-full py-5 bg-kura-accent text-white text-[10px] font-bold uppercase tracking-widest rounded-xl">
+                                Pedir Docena
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KURA Moments Box -->
+            <div class="mt-24 pt-16 border-t border-kura-dark/5 text-center">
+                <div class="max-w-2xl mx-auto bg-white p-12 rounded-[3rem] shadow-sm">
+                    <h3 class="text-3xl font-bold text-kura-dark mb-4 font-didot">KURA Moments Box</h3>
+                    <p class="text-stone-500 mb-8 font-didot">
+                        Crea tu combinación personalizada o elige nuestras selecciones curadas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="px-10 py-4 bg-kura-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
+                            Box Predefinido
+                        </button>
+                        <button class="px-10 py-4 border-2 border-kura-dark text-kura-dark text-[10px] font-bold uppercase tracking-widest rounded-full">
+                            Personalizar Box
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- VISTA: NOSOTROS -->
+    <main id="nosotros" class="page-view">
+        <section class="relative h-[80vh] flex items-center justify-center bg-stone-900 overflow-hidden">
+            <div class="absolute inset-0 opacity-60 parallax-section" style="background-image: url('images/nosotros-1.jpg');"></div>
+            <div class="relative z-10 text-center text-white px-6">
+                <span class="text-kura-gold font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Manifesto</span>
+                <h2 class="text-6xl md:text-8xl font-bold font-didot mb-6">Nuestra Esencia</h2>
+                <div class="w-24 h-px bg-white mx-auto mb-8"></div>
+                <p class="text-lg md:text-2xl font-light font-didot max-w-2xl mx-auto">
+                    Creemos que la nutrición es una inversión: el consumo consciente de hoy construye la salud del mañana.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-24 items-center mb-40">
+                    <div class="space-y-8">
+                        <span class="text-kura-accent font-bold tracking-widest text-xs uppercase">Cómo nació KURA</span>
+                        <h3 class="text-5xl font-bold text-kura-dark font-didot leading-tight">Caminos de resiliencia y propósito.</h3>
+                        <p class="text-stone-600 text-lg leading-relaxed font-light">
+                            KURA nació en los caminos de Ecuador, donde cada una de nosotras enfrentaba sus propias batallas. Nos unió algo más grande que nosotras: la convicción de que la verdadera nutrición no solo alimenta el cuerpo, sino que puede cambiar destinos.
+                        </p>
+                        <p class="text-stone-600 text-lg leading-relaxed font-light">
+                            En cada producto no solo hay ingredientes — hay historias reales, resiliencia y un propósito profundo: llevar al mundo una energía auténtica, limpia y consciente.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <img src="images/nosotros-2.jpg" class="rounded-[2.5rem] shadow-2xl scale-105" alt="Ecuador Rural">
+                        <div class="absolute -bottom-10 -right-10 bg-kura-dark text-white p-10 rounded-3xl hidden md:block max-w-xs">
+                            <p class="text-2xl font-didot">"Energía que alimenta destinos."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-24 items-center">
+                    <div class="order-2 md:order-1">
+                        <img src="images/nosotros-1.jpg" class="rounded-[2.5rem] shadow-2xl" alt="Mujeres Productoras">
+                    </div>
+                    <div class="space-y-8 order-1 md:order-2">
+                        <span class="text-kura-accent font-bold tracking-widest text-xs uppercase">Nuestro Impacto</span>
+                        <h3 class="text-5xl font-bold text-kura-dark font-didot leading-tight">Un acto de consciencia.</h3>
+                        <p class="text-stone-600 text-lg leading-relaxed font-light">
+                            Cada bocado es un acto de impacto. Es apoyar a mujeres que construyen futuro, a manos que cuidan con amor, a madres e hijas que creen en una forma más pura de alimentar al mundo.
+                        </p>
+                        <div class="pt-6 border-l-4 border-kura-accent pl-8">
+                            <p class="text-kura-dark font-didot text-2xl">
+                                Llevamos el alma de Ecuador en cada selección, transformando la resiliencia en bienestar compartido.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 bg-kura-dark text-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <p class="text-3xl md:text-5xl font-didot leading-snug mb-12">
+                    "Cada producto KURA es un recordatorio de que somos lo que consumimos. Elige energía real, elige bienestar."
+                </p>
+                <button onclick="navigateTo('products-main')" class="bg-white text-kura-dark px-12 py-5 rounded-full uppercase tracking-widest font-bold text-[10px] hover:bg-kura-accent hover:text-white transition-all">
+                    Explorar Productos
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="py-20 bg-stone-950 text-white/60">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold tracking-[0.2em] text-white mb-8">
+                K<span class="text-kura-u">U</span>RA
+            </h2>
+            <div class="flex justify-center gap-10 text-[10px] uppercase tracking-widest font-bold mb-10">
+                <button onclick="navigateTo('home')" class="hover:text-white transition">Inicio</button>
+                <button onclick="navigateTo('products-main')" class="hover:text-white transition">Catálogo</button>
+                <button onclick="navigateTo('nosotros')" class="hover:text-white transition">Nuestro Origen</button>
+            </div>
+            <p class="text-[9px] tracking-widest uppercase opacity-40">© 2026 KURA Natural Energy. Hecho con amor en Ecuador.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
