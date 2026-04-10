@@ -1,1 +1,157 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FAF0E8;
+    color: #3B1F0E;
+    overflow-x: hidden;
+}
 
+h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-didot {
+    font-family: 'Bodoni Moda', 'Didot', serif;
+    font-style: italic;
+}
+
+.bg-kura-dark {
+    background-color: #3B1F0E;
+}
+
+.text-kura-dark {
+    color: #3B1F0E;
+}
+
+.text-kura-u {
+    color: #5f160a;
+}
+
+.bg-kura-accent {
+    background-color: #A45D41;
+}
+
+.text-kura-accent {
+    color: #A45D41;
+}
+
+.bg-kura-gold {
+    background-color: #B8860B;
+}
+
+.text-kura-gold {
+    color: #B8860B;
+}
+
+.page-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-view.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-category-card {
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: white;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: 0 4px 20px rgba(59, 31, 14, 0.03);
+}
+
+.product-category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(59, 31, 14, 0.1);
+}
+
+.sub-card {
+    background: white;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(59, 31, 14, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sub-card:hover {
+    border-color: #A45D41;
+    box-shadow: 0 10px 30px rgba(164, 93, 65, 0.1);
+}
+
+.sub-card.selected {
+    background: #3B1F0E;
+    color: white !important;
+    transform: scale(0.98);
+}
+
+.sub-card.selected p,
+.sub-card.selected h4,
+.sub-card.selected span {
+    color: white !important;
+}
+
+.sub-card.selected .btn-select {
+    background: white;
+    color: #3B1F0E;
+}
+
+.category-view {
+    display: none;
+}
+
+.category-view.active {
+    display: block;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.parallax-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.btn-shine:hover::after {
+    left: 100%;
+}
+
+.nav-link.active {
+    color: #A45D41;
+    font-weight: 600;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
